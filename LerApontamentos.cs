@@ -16,7 +16,6 @@ namespace Apontamento
             string[] linhaseparada = null;
             List<Apontamento> apontamentos = new List<Apontamento>();
 
-            // ler o conteudo da linha e add na list 
             while ((linha = rd.ReadLine()) != null)
             {
                 linhaseparada = linha.Split(';');

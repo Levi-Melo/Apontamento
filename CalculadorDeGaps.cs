@@ -21,15 +21,16 @@ namespace Apontamento
             for (int i = 0; i + 1 < apontamentos.Count; i++)
             {
                 TimeSpan diff = apontamentos[i].dataFim.Subtract(apontamentos[i + 1].dataInicio);
-                allDiff += diff;
-                if (diff == TimeSpan.Zero)
+                if (diff != TimeSpan.Zero)
                 {
+                    allDiff += diff;
                     quantidadeDeGaps += 1;
                 };
             }
 
             gapsInfo[0] = quantidadeDeGaps;
             gapsInfo[1] = allDiff;
+
             Console.WriteLine("Total duração de gaps em dias, horas, minutos e segundo :" + gapsInfo[1]);
             Console.WriteLine("Total quantidade :" + gapsInfo[0]);
 
@@ -67,8 +68,8 @@ namespace Apontamento
 
             for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine(i + 1 + "° luto mais produtivo " + lotesOrdenado[i].numeroLote +
-                    " produziu um total de: " + lotesOrdenado[i].quantidadeProduzida);
+                Console.WriteLine(i + 1 + "° lote mais produtivo " + lotesOrdenado[i].numeroLote +
+                    " produziu um total de " + lotesOrdenado[i].quantidadeProduzida);
             }
             return lotesOrdenado;
         }
@@ -90,7 +91,7 @@ namespace Apontamento
             int minutos = allDiff.Minutes;
             int segundos = allDiff.Seconds;
             String timespanSemDias = horas + ":" + minutos + ":" + segundos;
-            Console.WriteLine("Período Total De Manutenção em horas, minutos e segundos : : " + timespanSemDias);
+            Console.WriteLine("Período Total De Manutenção em horas, minutos e segundos : " + timespanSemDias);
 
             return allDiff;
         }
